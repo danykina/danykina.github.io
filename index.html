@@ -1,123 +1,355 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="inCaneva" ng-controller="printEvents">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.3/angular-sanitize.js"></script>
-    <script src="app.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INCaneva</title>
+
+  <!-- Material Design Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.css" rel="stylesheet"/>
+
+  <!-- Template style -->
+  <link href="css/style.css" rel="stylesheet"/>
 
 </head>
+
 <body>
 
-    <div class="container">
+  <!-- Navigation -->
+  <nav class="navbar z-depth-2 info-color">
+    <div class="container ">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand waves-effect waves-light" href="#">INCaneva</a>
+      </div>
 
-        <div class="page-header">
-            <h1>inCaneva <small><span class="badge">{{eventi.length}}</span> eventi</small></h1>
-        </div>
-        <br>
-        <br>
-
-        <div ng-repeat="ev in eventi | orderBy:'evcal_srow'">
-
-            <div class="col-md-4">
-
-                    <div class="card">
-                        <img class="card-img-top" src={{ev.post_thumbnail}} alt="Card image cap" width=318px height=180px data-toggle="modal" data-target="#{{ev.ID}}">
-                        <div class="card-block">
-                            <h4 data-toggle="tooltip" data-placement="top" title="{{ev.post_title}}">
-                                {{ev.post_title | limitTo:30}}..
-                            </h4>
-
-                            <h5>{{ev.formattedDate}}</h5>
-
-                            <!-- Button trigger modal -->
-                            <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{ev.ID}}">
-                                info
-                            </button> -->
-
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="{{ev.ID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">{{ev.blogname}}</h4>
-                                        </div>
-                                        <div class="modal-body row">
-
-                                            <div class="col-md-offset-2 col-md-8">
-
-                                                <img src={{ev.post_thumbnail}} width="318" height="180">
-                                                <h2 class="title">{{ev.post_title}}</h2>
-                                                <h4>{{ev.formattedDate}}</h4>
-                                                <div ng-bind-html=ev.post_content></div>
-                                                
-                                                <!--<div ng-repeat="(key, value) in ev track by $index">
-
-                                                    
-                                                    <div ng-hide="(value == '' || key == 'post_thumbnail')" class="row">
-
-                                                        <b>{{key}}:</b> {{value}}
-                                                        <hr>
-
-                                                    </div>
-
-                                                    <div ng-if="key == 'post_thumbnail'">
-
-                                                        <img src={{value}} width="318" height="180">
-                                                        <hr>
-
-                                                    </div>
-
-                                                </div>-->
-
-                                            </div>
-
-                                        </div>                                    
-                                        <div class="modal-footer">
-                                            <div style="float: left">
-                                                    <ul class="share-buttons">
-                                                      <a href="https://www.facebook.com/sharer/sharer.php?u={{ev.permalink}}" title="Share on Facebook" target="_blank">
-                                                      <img src="imgs/colors/Facebook.png">
-                                                      </a>
-
-                                                      <a href="https://twitter.com/intent/tweet?source={{ev.permalink}}" target="_blank" title="Tweet">
-                                                      <img src="imgs/colors/Twitter.png">
-                                                      </a>
-
-                                                      <a href="https://plus.google.com/share?url={{ev.permalink}}" target="_blank" title="Share on Google+">
-                                                      <img src="imgs/colors/Google+.png">
-                                                      </a>
-
-                                                      <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ev.permalink}}" target="_blank" title="Share on LinkedIn"><img src="imgs/colors/LinkedIn.png"></a>
-                                                      
-                                                      <a href="mailto:?subject=Follow%20us%20on%20our%20official%20site&body={{ev.permalink}}" target="_blank" title="Email"><img src="imgs/colors/Email.png"></a>
-                                                    </ul>
-                                                </div>
-
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <br>
-
-            </div>
-
-        </div>
-
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#products" class="waves-effect waves-light">Products <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">List (click to expand) <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#videomaker">Video Maker</a>
+              </li>
+              <li><a href="#mdb">Material Design for Bootstrap</a>
+              </li>
+              <li><a href="#creativeagency">Creative Agency</a>
+              </li>
+              <li><a href="#photographer">Photographer Portfolio</a>
+              </li>
+              <li><a href="#service">Service Portfolio</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="#footer">Footer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right waves-effect waves-light" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+        </form>
+      </div>
     </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          <img src="img/logo_inCaneva.png">
+          <small><span class="badge">{{eventi.length}}</span> eventi</small>
+        </h1>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div ng-repeat="ev in eventi | orderBy:'evcal_srow'">
+      <!--
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src={{ev.post_thumbnail}} alt="Card image cap" width=318px height=180px data-toggle="modal" data-target="#{{ev.ID}}">
+          <div class="card-block">
+            <h4 data-toggle="tooltip" data-placement="top" title="{{ev.post_title}}">
+              {{ev.post_title | limitTo:30}}..
+            </h4>
+            <h5>{{ev.formattedDate}}</h5>
+          </div>
+        </div>
+        <br>
+      </div>
+      -->
+
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <a href="#">
+              <img src={{ev.post_thumbnail}} data-toggle="modal" data-target="#{{ev.ID}}"> 
+            </a>
+          </div>
+          <div class="card-content">
+            <h4 data-toggle="tooltip" data-placement="top" title="{{ev.post_title}}" uib-tooltip="{{ev.post_title}}">
+              {{ev.post_title | limitTo:30}}..
+            </h4>
+            {{ev.formattedDate}}
+            </br>
+            <p>{{ev.post_excerpt}}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">
+              <button type="button" class="btn btn-info waves-effect waves-light"  data-toggle="modal" data-target="#{{ev.ID}}">Read more</button>
+            </a>
+          </div> 
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="{{ev.ID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">{{ev.blogname}}</h4>
+            </div>
+            <div class="modal-body row">
+              <div class="col-md-offset-2 col-md-8">
+                <img src={{ev.post_thumbnail}} width="318" height="180">
+                <h2 class="title">{{ev.post_title}}</h2>
+                <h4>{{ev.formattedDate}}</h4>
+                <div ng-bind-html=ev.post_content></div>
+              </div>
+            </div>                                    
+            <div class="modal-footer">
+              <div style="float: left">
+                <a social-facebook custom-url="{{ev.permalink}}"><img src="img/social/Facebook.png"></a>
+                <a social-twitter custom-url="{{ev.permalink}}"><img src="img/social/Twitter.png"></a>
+                <a social-gplus custom-url="{{ev.permalink}}"><img src="img/social/Google+.png"></a>
+                <a social-linkedin custom-url="{{ev.permalink}}"><img src="img/social/LinkedIn.png"></a>
+                <!--<a ng-href="mailto:{{ev.permalink}}"><img src="img/social/Email.png"></a>-->
+              </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END Modal -->
+    </div>
+    <!-- END NG-Repeat -->
+
+
+
+
+
+
+
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project1.png">
+            <span class="card-title">Video Maker</span>
+          </div>
+          <div class="card-content">
+            <p>Some things just look better in motion and in the highly competitive world of fashion, finding an edge over the competition is crucial. When it comes to clothes ...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project2.png">
+            <span class="card-title">Material Design for Bootstrap</span>
+          </div>
+          <div class="card-content">
+            <p>Google designed a Material Design to make a web more beautiful. Twitter created a Bootstrap to support you in faster and easier development of responsive...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/material-design-for-bootstrap/">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project3.png">
+            <span class="card-title">Creative Agency</span>
+          </div>
+          <div class="card-content">
+            <p>Did you know that a strong brand is absolutely essential for generating sales and growth on Social Media? You may not have given a lot...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project4.png">
+            <span class="card-title">Photographer Portfolio</span>
+          </div>
+          <div class="card-content">
+            <p>Photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with the things you see and everything...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-photographer/">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project5.png">
+            <span class="card-title">Services Portfolio</span>
+          </div>
+          <div class="card-content">
+            <p>We offer a variety of advertising services focusing on your goals. You could say we are a one-stop shop for small to medium sized businesses. From online...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project6.png">
+            <span class="card-title">Card Title</span>
+          </div>
+          <div class="card-content">
+            <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis.</p>
+          </div>
+          <div class="card-action">
+            <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+  </div>
+  <!-- /.container -->
+
+
+  <!-- Footer -->
+  <footer class="page-footer info-color darken-1" if="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+          <p class="white-text center-on-small-only">GET STARTED</p>
+          <p class="white-text center-on-small-only">Register for free and start to create amazing things.</p>
+          <a href="#" class="btn btn-danger waves-effect waves-light">Get started!</a>
+
+        </div>
+        <hr class="hidden-lg hidden-md">
+
+        <div class="col-md-2">
+          <p class="white-text center-on-small-only">USEFUL LINKS</p>
+          <ul>
+            <li><a href="#" data-toggle="modal" data-target="#myModal" class="grey-text text-lighten-3" href="#!">Contact us</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="#" target="_blank">About MDB</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="#" target="_blank">Support</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="#" target="_blank">Bug report</a>
+            </li>
+
+
+          </ul>
+        </div>
+        <hr class="hidden-lg hidden-md">
+
+        <div class="col-md-3 text-center">
+          <p class="white-text text-center"> SOCIAL MEDIA</p>
+          <a target="_blank" href="https://www.facebook.com/" class="btn-floating btn-large fb-bg waves-effect waves-light"><i class="fa fa-facebook"> </i></a>
+          <a target="_blank" href="https://twitter.com/" class="btn-floating btn-large tw-bg waves-effect waves-light"><i class="fa fa-twitter"> </i></a>
+          <a target="_blank" href="https://plus.google.com/" class="btn-floating btn-large gplus-bg waves-effect waves-light"><i class="fa fa-google-plus"> </i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1"> © 2016 Copyright <a href="#">danykina</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- SCRIPTS -->
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <!-- Material Design Bootstrap -->
+  <script type="text/javascript" src="js/mdb.js"></script>
+
+  <!-- AngularJS -->
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-animate.min.js"></script>
+  <script type="text/javascript" src="js/angular-touch.min.js"></script>
+  <script type="text/javascript" src="js/ui-bootstrap-tpls-1.3.1.min.js"></script>
+  <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-social-links/angular-social-links.js"></script>
+
+  <!-- OUR Scripts -->
+  <script src="script/app.js"></script>
+
+  
 
 </body>
+
 </html>

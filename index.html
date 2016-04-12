@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="inCaneva" ng-controller="printEvents">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.3/angular-sanitize.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>inCaneva <small><span class="badge">{{eventi.length}}</span> eventi</small></h1>
+        </div>
+        <br>
+        <br>
+
+        <div ng-repeat="ev in eventi | orderBy:'evcal_srow'">
+
+            <div class="col-md-4">
+
+                    <div class="card">
+                        <img class="card-img-top" src={{ev.post_thumbnail}} alt="Card image cap" width=318px height=180px data-toggle="modal" data-target="#{{ev.ID}}">
+                        <div class="card-block">
+                            <h4 data-toggle="tooltip" data-placement="top" title="{{ev.post_title}}">
+                                {{ev.post_title | limitTo:30}}..
+                            </h4>
+
+                            <h5>{{ev.formattedDate}}</h5>
+
+                            <!-- Button trigger modal -->
+                            <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{ev.ID}}">
+                                info
+                            </button> -->
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="{{ev.ID}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">{{ev.blogname}}</h4>
+                                        </div>
+                                        <div class="modal-body row">
+
+                                            <div class="col-md-offset-2 col-md-8">
+
+                                                <img src={{ev.post_thumbnail}} width="318" height="180">
+                                                <h2 class="title">{{ev.post_title}}</h2>
+                                                <h4>{{ev.formattedDate}}</h4>
+                                                <div ng-bind-html=ev.post_content></div>
+                                                
+                                                <!--<div ng-repeat="(key, value) in ev track by $index">
+
+                                                    
+                                                    <div ng-hide="(value == '' || key == 'post_thumbnail')" class="row">
+
+                                                        <b>{{key}}:</b> {{value}}
+                                                        <hr>
+
+                                                    </div>
+
+                                                    <div ng-if="key == 'post_thumbnail'">
+
+                                                        <img src={{value}} width="318" height="180">
+                                                        <hr>
+
+                                                    </div>
+
+                                                </div>-->
+
+                                            </div>
+
+                                        </div>                                    
+                                        <div class="modal-footer">
+                                            <div style="float: left">
+                                                    <ul class="share-buttons">
+                                                      <a href="https://www.facebook.com/sharer/sharer.php?u={{ev.permalink}}" title="Share on Facebook" target="_blank">
+                                                      <img src="imgs/colors/Facebook.png">
+                                                      </a>
+
+                                                      <a href="https://twitter.com/intent/tweet?source={{ev.permalink}}" target="_blank" title="Tweet">
+                                                      <img src="imgs/colors/Twitter.png">
+                                                      </a>
+
+                                                      <a href="https://plus.google.com/share?url={{ev.permalink}}" target="_blank" title="Share on Google+">
+                                                      <img src="imgs/colors/Google+.png">
+                                                      </a>
+
+                                                      <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ev.permalink}}" target="_blank" title="Share on LinkedIn"><img src="imgs/colors/LinkedIn.png"></a>
+                                                      
+                                                      <a href="mailto:?subject=Follow%20us%20on%20our%20official%20site&body={{ev.permalink}}" target="_blank" title="Email"><img src="imgs/colors/Email.png"></a>
+                                                    </ul>
+                                                </div>
+
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

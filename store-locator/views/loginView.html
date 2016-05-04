@@ -1,0 +1,30 @@
+<br>
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-offset-4 col-lg-4 box" ng-show="loginshow">
+            <div class="col-lg-12 text-center">
+                <form>
+                    <div class="form-group row">
+                        <div class="col-md-offset-4 col-md-4 logospace">
+                            <a href="#" class="logo noOpacity"></a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail1" class="control-label">Email:</label>
+                        <input type="email" class="form-control" id="inputEmail1" ng-model="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1" class="control-label">Password:</label>
+                        <input type="password" class="form-control" id="inputPassword1" ng-model="password">
+                    </div>
+                    <br>
+                    <img ng-src="http://v2.preloaders.net/preloaders/2/Broken%20circle.gif" ng-show="loginwait"/>
+                    <button type="submit" class="btn btn-raised btn-primary noOpacity" ng-click="loginComplete()" ng-show="submithide">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

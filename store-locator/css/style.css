@@ -1,0 +1,115 @@
+body {
+    background-image: url("../asserts/bg.jpg");
+    opacity: 0.97;
+}
+.logo {
+    opacity: 1;
+    display: block;
+    text-indent: -9999px;
+    width: 102px;
+    height: 102px;
+    background-image: url(../asserts/logo-jesse-cerchio.svg);
+    background-size: 102px 102px;
+}
+.logospace {
+    padding-left: 8px;
+}
+.noOpacity {
+    opacity: 1 !important;
+}
+p {
+    color: #DAA520;
+}
+a {
+    color: #DAA520;
+}
+a:focus {
+    color: #DAA520;
+}
+a:focus, a:hover {
+    color: #DAA520;
+}
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+    color: #DAA520;
+}
+.box {
+    opacity: 0.97;
+
+    -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1.5s; /* Firefox < 16 */
+    -ms-animation: fadein 1.5s; /* Internet Explorer */
+    -o-animation: fadein 1.5s; /* Opera < 12.1 */
+    animation: fadein 1.5s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.97; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.97; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.97; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.97; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 0.97; }
+}
+.storespinner {
+    text-align: center;
+}
+footer {
+    background-color: #101010;
+}
+#map {
+    width: 100%;
+    height: 800px;
+}
+.info {
+    font-size: x-large;
+    cursor: pointer;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #DAA520;
+    border-color: #DAA520;
+}
+.btn-primary:focus {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+.btn-primary:active {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    background-color: darkred;
+    color: #DDD;
+}
+.form-control:focus {
+    border-color: #DAA520;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(218, 165, 32, .075), 0 0 8px rgba(218, 165, 32, .6);
+    box-shadow: inset 0 1px 1px rgba(218, 165, 32, .075), 0 0 8px rgba(218, 165, 32, .6);
+}

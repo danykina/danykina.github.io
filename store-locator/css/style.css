@@ -2,18 +2,6 @@ body {
     background-image: url("../asserts/bg.jpg");
     opacity: 0.97;
 }
-.logo {
-    opacity: 1;
-    display: block;
-    text-indent: -9999px;
-    width: 102px;
-    height: 102px;
-    background-image: url(../asserts/logo-jesse-cerchio.svg);
-    background-size: 102px 102px;
-}
-.logospace {
-    padding-left: 8px;
-}
 .noOpacity {
     opacity: 1 !important;
 }

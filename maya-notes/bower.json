@@ -1,0 +1,26 @@
+{
+  "name": "mayaNotes",
+  "homepage": "https://github.com/davidPetringolo/mayaNotes",
+  "authors": [
+    "davidPetringolo <david.petringolo@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-pouchdb": "~4.1.0",
+    "jquery": "1.9.1 - 2",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "moment": "^2.13.0",
+    "textAngular": "^1.5.1"
+  }
+}

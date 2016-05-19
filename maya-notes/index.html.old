@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#0D7FC4">
+    <title>Maya Notes</title>
+
+
+    <link rel="apple-touch-icon" sizes="192x192" href="asserts/icon-webnoted256plusShadow.png">
+    <link rel="icon" sizes="192x192" href="asserts/icon-webnoted256plusShadow.png">
+    <link rel="stylesheet" type="text/css" href="components/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="components/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="components/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="components/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="components/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="components/css/navbar-static-top.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <script type="text/javascript" src="components/js/angular.js"></script>
+    <script type="text/javascript" src="components/js/angular.min.js"></script>
+    <script type="text/javascript" src="components/js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="components/js/jquery.js"></script>
+    <script type="text/javascript" src="components/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="components/js/angular-pouchdb.js"></script>
+
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/services/dataAccess.js"></script>
+    <script type="text/javascript" src="scripts/controllers/homeController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/detailsController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/editController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/insertController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/deleteController.js"></script>
+
+
+
+
+</head>
+<body ng-app="mayaNotes">
+
+
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!--<a class="navbar-brand " href="#">UX</a>-->
+            <a class="icon search" href=""><i class="fa fa-search"></i></a>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- sidebar -->
+        <div class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+            <!--<ul data-spy="affix" data-offset-top="120" id="affix" class="nav nav-stacked">-->
+            <ul data-offset-top="120" id="affix" class="nav nav-stacked affix">
+                <li> <a ui-sref="home"> <i class="fa fa-th"></i> Home</a></li>
+                <li><a href="#"> <i class="fa fa-bullhorn"></i> News</a></li>
+                <li><a href="#"> <i class="fa fa-users"></i> Who Whe Are</a></li>
+                <li><a href="#"> <i class="fa fa-map-marker"></i> Map</a></li>
+                <li><a href="#" data-toggle="collapse" data-target="#sub1"> <i class="fa fa-envelope"></i>Contacts (submenu)</a>
+                    <ul class="nav collapse" id="sub1">
+                        <li><a href="#">andrea@gmail.com</a></li>
+                        <li><a href="#">lorenzo@gmail.com</a></li>
+                        <li><a href="#">matteo@gmail.com</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- content -->
+        <div class="col-xs-12  col-sm-8 col-md-9 content">
+
+            <div ui-view>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle=offcanvas]').click(function() {
+                $('.sidebar-offcanvas').toggleClass('active', 1000);
+            });
+        });
+    </script>
+
+
+</div>
+
+</body>
+</html>

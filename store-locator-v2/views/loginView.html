@@ -1,0 +1,31 @@
+<br>
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-offset-4 col-lg-4 box" ng-show="loginshow">
+            <form class="text-center">
+                <div class="form-group row">
+                    <div class="col-lg-offset-4 col-lg-4">
+                        <img src="asserts/logo-jesse-cerchio.png">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail1" class="control-label">Email:</label>
+                    <input type="email" class="form-control" id="inputEmail1" ng-model="email">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword1" class="control-label">Password:</label>
+                    <input type="password" class="form-control" id="inputPassword1" ng-model="password">
+                </div>
+                <br>
+                <img src="asserts/ajax-loader.gif" ng-show="loginwait"/>
+                <button type="submit" class="btn btn-raised btn-primary noOpacity" ng-click="loginComplete()" ng-show="submithide">Login</button>
+                <br>
+                <br>
+                <p class="sessionescaduta" ng-show="sessionescaduta">Sessione scaduta, esegui nuovamente il login.</p>
+            </form>
+        </div>
+    </div>
+
+</div>

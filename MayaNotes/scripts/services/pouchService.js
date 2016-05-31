@@ -1,7 +1,7 @@
 mayaNotes.service('pouchService', function(pouchDB) {
 
     var db = new pouchDB("localnotes");
-    var remdb = new pouchDB("http://ec2-52-39-178-119.us-west-2.compute.amazonaws.com:5984/mayadb");
+    var remdb = new pouchDB("http://ec2-52-40-220-228.us-west-2.compute.amazonaws.com:5984/mayadb");
 
     db.sync(remdb, {
       live: true,

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#0D7FC4">
+    <title>Maya Notes</title>
+
+    <link rel="apple-touch-icon" sizes="192x192" href="asserts/img/Logo_Android.png">
+    <link rel="icon" sizes="192x192" href="asserts/img/Logo_Android.png">
+
+    <!--CSS Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <!--CSS FontAwesome-->
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+
+    <!--CSS Sidebar-->
+    <link rel="stylesheet" type="text/css" href="asserts/css/navbar-static-top.css">
+
+    <!--Tags CSS-->
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-tags-input/ng-tags-input.min.css">
+
+    <!--My CSS-->
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <!--JS Angular-->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-touch/angular-touch.js"></script>
+
+    <!--Pouch DB-->
+    <script type="text/javascript" src="bower_components/pouchdb/dist/pouchdb.js"></script>
+    <script type="text/javascript" src="bower_components/angular-pouchdb/angular-pouchdb.js"></script>
+
+    <!--Angular Truncate (text filter)-->
+    <script type="text/javascript" src="asserts/js/truncate.js"></script>
+
+    <!--JS jQuery-->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!--JS Bootstrap-->
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!--JS Moment-->
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-moment/angular-moment.min.js"></script>
+
+    <!--JS Angular TAGS -->
+    <script type="text/javascript" src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
+
+    <!--Crypto JS-->
+    <script type="text/javascript" src='bower_components/crypto-js/crypto-js.js'></script>
+
+    <!--JS Angular UUID and GUID Generator-->
+    <script src="bower_components/Angular.uuid2/dist/angular-uuid2.js"></script>
+
+    <!--JS Amazon AWS-->
+    <script type="text/javascript" src='asserts/js/aws-sdk.min.js'></script>
+
+    <!--AMAZON CREDENTIALS-->
+    <script type="text/javascript" src="amazonCredentials.js"></script>
+
+    <!--My JS-->
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/services/pouchService.js"></script>
+    <script type="text/javascript" src="scripts/controllers/homeController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/detailsController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/editController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/insertController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/contactsController.js"></script>
+    <script type="text/javascript" src="scripts/factories/upload.js"></script>
+
+
+</head>
+<body ng-app="mayaNotes">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav" id="sidenavbutton">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- sidebar -->
+            <div class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+                <ul data-offset-top="120" id="affix" class="nav nav-stacked affix">
+                    <li><a ui-sref="home"> <i class="fa fa-th"></i> Tutte le note</a></li>
+                    <li><a ui-sref="contacts"> <i class="fa fa-bullhorn"></i> Note preferite</a></li>
+                    <li><a ui-sref="contacts"> <i class="fa fa-users"></i> Contatti</a></li>
+                </ul>
+            </div>
+            <!-- content -->
+            <div class="col-xs-12  col-sm-8 col-md-9 content">
+                <div ui-view>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
